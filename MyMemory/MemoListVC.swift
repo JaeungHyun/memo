@@ -77,7 +77,7 @@ extension MemoListVC {
             // 사용자가 클릭한 행을 찾아낸다
             let path = self.tableView.indexPath(for: cell)
             
-            // API 영화 데이터 배열 중에서 선택된 행에 대한 데이터를 추출한다.
+            // 클릭된 메모의 정보를 불러온다
             let memoinfo = self.appDelegate.memolist[path!.row]
             
             // 행 정보를 통해 선택된 영화 데이터를 찾은 다음, 목적지 뷰 컨트롤러의 mvo 변수에 대입한다.

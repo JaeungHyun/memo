@@ -46,14 +46,41 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     // 카메라 버튼 눌렀을 때 작동하는 함수
     @IBAction func pick(_ sender: Any) {
-        // 이미지 피커 인스턴스를 생성한다.
-        let picker = UIImagePickerController()
+        // 카메라 버튼을 눌렀을 때 작동 액션 시트 작동
+        let choose = UIAlertController(title: nil,
+                                       message: nil,
+                                       preferredStyle: .actionSheet)
         
-        picker.delegate = self
-        picker.allowsEditing = true
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let camera = UIAlertAction(title: "카메라", style: .default) { (_) in
+            // 카메라 실행
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.allowsEditing = true
+            
+            picker.delegate = self
+            
+            self.present(picker, animated: false)
+            
+        }
+        let photoLib = UIAlertAction(title: "사진 앨범", style: .default) { (_) in
+            // 사진 앨범 실행
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.allowsEditing = true
+            
+            picker.delegate = self
+            
+            self.present(picker, animated: false)
+            
+        }
         
-        // 이미지 피커 화면을 표시한다.
-        self.present(picker, animated: false)
+        choose.addAction(cancel)
+        choose.addAction(camera)
+        choose.addAction(photoLib)
+        
+        self.present(choose, animated: true)
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
