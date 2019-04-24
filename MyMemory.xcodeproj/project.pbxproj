@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0DF02E226FF97B00E3FB85 /* fountainpen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF02D226FF97B00E3FB85 /* fountainpen@2x.png */; };
 		CF1D0B17226ED0650064217F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0B16226ED0650064217F /* AppDelegate.swift */; };
 		CF1D0B1C226ED0650064217F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1D0B1A226ED0650064217F /* Main.storyboard */; };
 		CF1D0B1F226ED0650064217F /* MyMemory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0B1D226ED0650064217F /* MyMemory.xcdatamodeld */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF0DF02D226FF97B00E3FB85 /* fountainpen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fountainpen@2x.png"; sourceTree = "<group>"; };
 		CF1D0B13226ED0650064217F /* MyMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1D0B16226ED0650064217F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF1D0B1B226ED0650064217F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,9 +47,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF0DF02C226FF96900E3FB85 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CF0DF02D226FF97B00E3FB85 /* fountainpen@2x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		CF1D0B0A226ED0650064217F = {
 			isa = PBXGroup;
 			children = (
+				CF0DF02C226FF96900E3FB85 /* Resource */,
 				CF1D0B15226ED0650064217F /* MyMemory */,
 				CF1D0B14226ED0650064217F /* Products */,
 			);
@@ -139,6 +150,7 @@
 			files = (
 				CF1D0B24226ED0660064217F /* LaunchScreen.storyboard in Resources */,
 				CF1D0B21226ED0660064217F /* Assets.xcassets in Resources */,
+				CF0DF02E226FF97B00E3FB85 /* fountainpen@2x.png in Resources */,
 				CF1D0B1C226ED0650064217F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

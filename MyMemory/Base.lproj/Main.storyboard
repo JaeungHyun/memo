@@ -152,7 +152,7 @@
                     <navigationItem key="navigationItem" title="Index" id="akC-e5-Bl6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xng-DX-2ms">
                             <connections>
-                                <segue destination="Jpc-NS-Ewm" kind="show" id="kaP-b4-kGG"/>
+                                <segue destination="Jpc-NS-Ewm" kind="show" identifier="" id="kaP-b4-kGG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

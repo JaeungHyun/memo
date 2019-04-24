@@ -35,19 +35,19 @@ class MemoListVC: UITableViewController {
         let cellId = row.image == nil ? "memoCell" : "memoCellWithImage"
         
         // 3. 재사용 큐로부터 프로토타입 셀의 인스턴스를 전달받는다.
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! MemoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? MemoCell
         
         // 4. memoCell의 내용을 구현한다
-        cell.subject?.text = row.title
-        cell.contents?.text = row.contents
-        cell.img?.image = row.image
+        cell!.subject.text = row.title
+        cell!.contents.text = row.contents
+        cell!.img.image = row.image
         
         // 5. Date 타입의 날짜를 yyyy-MM-dd HH:mm:ss 포맷에 맞게 변경한다.
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        cell.regdate?.text = formatter.string(from: row.regdate!)
+        cell!.regdate.text = formatter.string(from: row.regdate!)
 
-        return cell
+        return cell!
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,5 +62,30 @@ class MemoListVC: UITableViewController {
         // 3. 값을 전달한 다음, 상세 화면으로 이동
         vc.param = row
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+}
+// MARK: - 화면 전환 시 값을 넘겨주기 위한 세그웨이 관련 처리
+extension MemoListVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 실행된 세그웨이의 식별자가 "read_sg"이라면
+        if segue.identifier == "read_sg" {
+            
+            // sender 인자를 캐스팅하여 테이블 셀 객체로 변환한다.
+            let cell = sender as! MemoCell
+            
+            // 사용자가 클릭한 행을 찾아낸다
+            let path = self.tableView.indexPath(for: cell)
+            
+            // API 영화 데이터 배열 중에서 선택된 행에 대한 데이터를 추출한다.
+            let memoinfo = self.appDelegate.memolist[path!.row]
+            
+            // 행 정보를 통해 선택된 영화 데이터를 찾은 다음, 목적지 뷰 컨트롤러의 mvo 변수에 대입한다.
+            let detailVC = segue.destination as? MemoReadVC
+            detailVC?.subject.text = memoinfo.title
+            detailVC?.contents.text = memoinfo.contents
+            detailVC?.img.image = memoinfo.image
+            
+        }
     }
 }
