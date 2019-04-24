@@ -44,7 +44,24 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
     }
     
-    // 카메라 버튼 눌렀을 때 작동하는 함수
+    override func viewDidLoad() {
+        self.contents.delegate = self
+    }
+    
+    
+    func textViewDidChange(_ textView: UITextView) {
+        // 내용의 최대 15자리까지 읽어 subject 변수에 저장한다.
+        let contents = textView.text as NSString
+        let length = ( (contents.length > 15) ? 15 : contents.length)
+        self.subject = contents.substring(with: NSRange(location: 0, length: length))
+        
+        // 내비게이션 타이틀에 표시
+        self.navigationItem.title = subject
+    }
+}
+
+// MARK: - 카메라 버튼 눌렀을 때 담당하는 부분
+extension MemoFormVC {
     @IBAction func pick(_ sender: Any) {
         // 카메라 버튼을 눌렀을 때 작동 액션 시트 작동
         let choose = UIAlertController(title: nil,
@@ -92,17 +109,5 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         picker.dismiss(animated: false)
     }
     
-    override func viewDidLoad() {
-        self.contents.delegate = self
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        // 내용의 최대 15자리까지 읽어 subject 변수에 저장한다.
-        let contents = textView.text as NSString
-        let length = ( (contents.length > 15) ? 15 : contents.length)
-        self.subject = contents.substring(with: NSRange(location: 0, length: length))
-        
-        // 내비게이션 타이틀에 표시
-        self.navigationItem.title = subject
-    }
+
 }
