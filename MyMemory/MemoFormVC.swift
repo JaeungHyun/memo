@@ -83,6 +83,7 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
     }
     
+    // 이미지를 선택하고 난 후 실행되는 메소드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 선택된 이미지를 미리보기에 표시한다.
         self.preview.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage

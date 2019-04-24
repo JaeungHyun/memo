@@ -38,14 +38,14 @@ class MemoListVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? MemoCell
         
         // 4. memoCell의 내용을 구현한다
-        cell!.subject.text = row.title
-        cell!.contents.text = row.contents
-        cell!.img.image = row.image
+        cell?.subject?.text = row.title
+        cell?.contents?.text = row.contents
+        cell?.img?.image = row.image
         
         // 5. Date 타입의 날짜를 yyyy-MM-dd HH:mm:ss 포맷에 맞게 변경한다.
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        cell!.regdate.text = formatter.string(from: row.regdate!)
+        cell?.regdate?.text = formatter.string(from: row.regdate!)
 
         return cell!
     }
