@@ -18,6 +18,10 @@
 		CF1D0B30226EE0F30064217F /* MemoReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0B2F226EE0F20064217F /* MemoReadVC.swift */; };
 		CF1D0B32226EE1220064217F /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0B31226EE1220064217F /* MemoCell.swift */; };
 		CF1D0B34226EE1500064217F /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0B33226EE1500064217F /* MemoData.swift */; };
+		CFAE3FDF22781FE400B19ACD /* CSLogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE3FDE22781FE400B19ACD /* CSLogButton.swift */; };
+		CFAE3FE32278209B00B19ACD /* memo-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAE3FE02278209B00B19ACD /* memo-background@2x.png */; };
+		CFAE3FE42278209B00B19ACD /* warning-icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAE3FE12278209B00B19ACD /* warning-icon-60@2x.png */; };
+		CFAE3FE52278209B00B19ACD /* button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAE3FE22278209B00B19ACD /* button-bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		CF1D0B2F226EE0F20064217F /* MemoReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoReadVC.swift; sourceTree = "<group>"; };
 		CF1D0B31226EE1220064217F /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		CF1D0B33226EE1500064217F /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
+		CFAE3FDE22781FE400B19ACD /* CSLogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSLogButton.swift; sourceTree = "<group>"; };
+		CFAE3FE02278209B00B19ACD /* memo-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "memo-background@2x.png"; sourceTree = "<group>"; };
+		CFAE3FE12278209B00B19ACD /* warning-icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning-icon-60@2x.png"; sourceTree = "<group>"; };
+		CFAE3FE22278209B00B19ACD /* button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-bg.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				CF0DF02D226FF97B00E3FB85 /* fountainpen@2x.png */,
+				CFAE3FE22278209B00B19ACD /* button-bg.png */,
+				CFAE3FE02278209B00B19ACD /* memo-background@2x.png */,
+				CFAE3FE12278209B00B19ACD /* warning-icon-60@2x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -81,6 +92,7 @@
 				CF1D0B31226EE1220064217F /* MemoCell.swift */,
 				CF1D0B2B226EE07E0064217F /* MemoListVC.swift */,
 				CF1D0B2D226EE0E30064217F /* MemoFormVC.swift */,
+				CFAE3FDE22781FE400B19ACD /* CSLogButton.swift */,
 				CF1D0B2F226EE0F20064217F /* MemoReadVC.swift */,
 				CF1D0B20226ED0660064217F /* Assets.xcassets */,
 				CF1D0B22226ED0660064217F /* LaunchScreen.storyboard */,
@@ -148,9 +160,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFAE3FE32278209B00B19ACD /* memo-background@2x.png in Resources */,
 				CF1D0B24226ED0660064217F /* LaunchScreen.storyboard in Resources */,
 				CF1D0B21226ED0660064217F /* Assets.xcassets in Resources */,
 				CF0DF02E226FF97B00E3FB85 /* fountainpen@2x.png in Resources */,
+				CFAE3FE52278209B00B19ACD /* button-bg.png in Resources */,
+				CFAE3FE42278209B00B19ACD /* warning-icon-60@2x.png in Resources */,
 				CF1D0B1C226ED0650064217F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFAE3FDF22781FE400B19ACD /* CSLogButton.swift in Sources */,
 				CF1D0B2C226EE07E0064217F /* MemoListVC.swift in Sources */,
 				CF1D0B30226EE0F30064217F /* MemoReadVC.swift in Sources */,
 				CF1D0B1F226ED0650064217F /* MyMemory.xcdatamodeld in Sources */,
