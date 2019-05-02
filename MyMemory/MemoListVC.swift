@@ -89,3 +89,25 @@ extension MemoListVC {
         }
     }
 }
+
+// MARK: - viewDidLoad()
+extension MemoListVC {
+    
+    override func viewDidLoad() {
+        // SWRevealVeiwController 라이브러리의 revealViewController 객체를 읽어옴
+        if let revealVC = self.revealViewController() {
+            
+            // 바 버튼 아이템 객체 정의
+            let btn = UIBarButtonItem()
+            btn.image = UIImage(named: "sidemenu.png")
+            btn.target = revealVC
+            btn.action = #selector(revealVC.revealToggle(_:))
+            
+            // 정의된 바 버튼을 내비게이션 바 왼쪽 아이템으로 등록
+            self.navigationItem.leftBarButtonItem = btn
+            
+            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
+    }
+   
+}
