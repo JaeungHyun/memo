@@ -9,6 +9,8 @@
 import UIKit
 
 class SideBarVC: UITableViewController {
+    let uinfo = UserInfoManager() // 개인 정보 관리 매니저
+    
     
     let nameLabel = UILabel()
     let emailLabel = UILabel()
@@ -54,7 +56,7 @@ class SideBarVC: UITableViewController {
         self.tableView.tableHeaderView = headerView
         
         self.nameLabel.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
-        self.nameLabel.text = "JaeUng Hyun"
+        
         self.nameLabel.textColor = UIColor.white
         self.nameLabel.font = UIFont.boldSystemFont(ofSize: 15)
         self.nameLabel.backgroundColor = UIColor.clear
@@ -62,15 +64,14 @@ class SideBarVC: UITableViewController {
         headerView.addSubview(self.nameLabel)
         
         self.emailLabel.frame = CGRect(x: 70, y: 30, width: 100, height: 30)
-        self.emailLabel.text = "jaeung@me.com"
+        
         self.emailLabel.textColor = UIColor.white
         self.emailLabel.font = UIFont.boldSystemFont(ofSize: 11)
         self.emailLabel.backgroundColor = UIColor.clear
         
         headerView.addSubview(self.emailLabel)
         
-        let defaultProfile = UIImage(named: "account.jpg")
-        self.profileImage.image = defaultProfile
+        
         self.profileImage.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
         
         self.profileImage.layer.cornerRadius = (self.profileImage.frame.width / 2)
@@ -92,5 +93,11 @@ class SideBarVC: UITableViewController {
                 self.revealViewController().revealToggle(self)
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.nameLabel.text = self.uinfo.name ?? "Guest"
+        self.emailLabel.text = self.uinfo.account ?? ""
+        self.profileImage.image = self.uinfo.profile
     }
 }
