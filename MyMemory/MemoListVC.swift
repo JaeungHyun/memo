@@ -10,6 +10,8 @@ import UIKit
 
 class MemoListVC: UITableViewController {
     
+    lazy var dao = MemoDAO()
+    
     // 앱 델리게이트 객체의 참조 정보를 읽어옴
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -22,11 +24,14 @@ class MemoListVC: UITableViewController {
             
             return
         }
+        // 코어 데이터에 저장된 데이터를 가져옴
+        self.appDelegate.memolist = self.dao.fetch()
+        
         self.tableView.reloadData()
     }
     
     
-    // MARK: - Table view data source
+    // MARK: - 테이블 뷰 관련된 메소드
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = self.appDelegate.memolist.count
         
@@ -69,6 +74,21 @@ class MemoListVC: UITableViewController {
         // 3. 값을 전달한 다음, 상세 화면으로 이동
         vc.param = row
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let data = self.appDelegate.memolist[indexPath.row]
+        
+        // 코어데이터에서 삭제한 다음, 배열 내 데이터 및 테이블 뷰 행을 차례로 삭제
+        if dao.delete(data.objectID!) {
+            self.appDelegate.memolist.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
     }
 
 }
