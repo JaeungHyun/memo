@@ -8,14 +8,15 @@
 
 import UIKit
 
-class MemoListVC: UITableViewController {
+class MemoListVC: UITableViewController, UISearchBarDelegate {
     
     lazy var dao = MemoDAO()
+    
+    @IBOutlet var searchBar: UISearchBar!
     
     // 앱 델리게이트 객체의 참조 정보를 읽어옴
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-    
     override func viewWillAppear(_ animated: Bool) {
         let ud = UserDefaults.standard
         if ud.bool(forKey: UserInfoKey.tutorial) == false {
@@ -30,6 +31,25 @@ class MemoListVC: UITableViewController {
         self.tableView.reloadData()
     }
     
+    override func viewDidLoad() {
+        // 검색 바의 키보드에서 리턴 키가 항상 활성화되어 있도록 처리
+        searchBar.enablesReturnKeyAutomatically = false
+        
+        // SWRevealVeiwController 라이브러리의 revealViewController 객체를 읽어옴
+        if let revealVC = self.revealViewController() {
+            
+            // 바 버튼 아이템 객체 정의
+            let btn = UIBarButtonItem()
+            btn.image = UIImage(named: "sidemenu.png")
+            btn.target = revealVC
+            btn.action = #selector(revealVC.revealToggle(_:))
+            
+            // 정의된 바 버튼을 내비게이션 바 왼쪽 아이템으로 등록
+            self.navigationItem.leftBarButtonItem = btn
+            
+            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
+    }
     
     // MARK: - 테이블 뷰 관련된 메소드
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,9 +111,7 @@ class MemoListVC: UITableViewController {
         }
     }
 
-}
-// MARK: - 화면 전환 시 값을 넘겨주기 위한 세그웨이 관련 처리
-extension MemoListVC {
+    // MARK: - 화면 전환 시 값을 넘겨주기 위한 세그웨이 관련 처리
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 실행된 세그웨이의 식별자가 "read_sg"이라면
         if segue.identifier == "read_sg" {
@@ -115,26 +133,12 @@ extension MemoListVC {
             
         }
     }
-}
 
-// MARK: - viewDidLoad()
-extension MemoListVC {
-    
-    override func viewDidLoad() {
-        // SWRevealVeiwController 라이브러리의 revealViewController 객체를 읽어옴
-        if let revealVC = self.revealViewController() {
-            
-            // 바 버튼 아이템 객체 정의
-            let btn = UIBarButtonItem()
-            btn.image = UIImage(named: "sidemenu.png")
-            btn.target = revealVC
-            btn.action = #selector(revealVC.revealToggle(_:))
-            
-            // 정의된 바 버튼을 내비게이션 바 왼쪽 아이템으로 등록
-            self.navigationItem.leftBarButtonItem = btn
-            
-            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
-        }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let keyword = searchBar.text // 검색 바에 입력된 키워드를 가져옴
+        
+        // 키워드를 적용하여 데이터를 검색하고, 테이블 뷰를 갱신
+        self.appDelegate.memolist = self.dao.fetch(keyword: keyword)
+        self.tableView.reloadData()
     }
-   
 }

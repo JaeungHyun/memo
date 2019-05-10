@@ -15,7 +15,7 @@ class MemoDAO {
         return appDelegate.persistentContainer.viewContext
     }()
     
-    func fetch() -> [MemoData] {
+    func fetch(keyword text: String? = nil) -> [MemoData] {
         var memolist = [MemoData]()
         // 1. 요청 객체 생성
         let fetchRequest: NSFetchRequest<MemoMO> = MemoMO.fetchRequest()
@@ -23,6 +23,10 @@ class MemoDAO {
         // 1-1. 최신 글 순으로 정렬하도록 정렬 객체 생성
         let regdateDesc = NSSortDescriptor(key: "regdate", ascending: false)
         fetchRequest.sortDescriptors = [regdateDesc]
+        
+        if let t = text, t.isEmpty == false {
+            fetchRequest.predicate = NSPredicate(format: "contents CONTAINS[c] %@", t)
+        }
         
         do {
             let resultset = try self.context.fetch(fetchRequest)
