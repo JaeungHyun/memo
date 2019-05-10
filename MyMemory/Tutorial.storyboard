@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXb-xe-Ahc">
-                                <rect key="frame" x="342" y="802" width="52" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXb-xe-Ahc">
+                                <rect key="frame" x="181" y="853" width="52" height="30"/>
                                 <state key="normal" title="시작하기"/>
                                 <connections>
                                     <action selector="close:" destination="bx1-Cf-hpA" eventType="touchUpInside" id="pYa-qa-eag"/>
@@ -28,7 +28,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="uXb-xe-Ahc" secondAttribute="bottom" constant="30" id="4do-X7-eRc"/>
+                            <constraint firstItem="uXb-xe-Ahc" firstAttribute="centerX" secondItem="K9U-xt-3I7" secondAttribute="centerX" id="haQ-pu-ZR4"/>
+                            <constraint firstItem="uXb-xe-Ahc" firstAttribute="top" secondItem="Pzz-ms-jRD" secondAttribute="top" constant="809" id="lRo-h8-CSr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pzz-ms-jRD"/>
                     </view>

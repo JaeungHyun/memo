@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF0DF02E226FF97B00E3FB85 /* fountainpen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF0DF02D226FF97B00E3FB85 /* fountainpen@2x.png */; };
+		CF15D9262285879D006DC0D1 /* MemoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF15D9252285879D006DC0D1 /* MemoDAO.swift */; };
 		CF1D0B17226ED0650064217F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0B16226ED0650064217F /* AppDelegate.swift */; };
 		CF1D0B1C226ED0650064217F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF1D0B1A226ED0650064217F /* Main.storyboard */; };
 		CF1D0B1F226ED0650064217F /* MyMemory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF1D0B1D226ED0650064217F /* MyMemory.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		CF0DF02D226FF97B00E3FB85 /* fountainpen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fountainpen@2x.png"; sourceTree = "<group>"; };
+		CF15D9252285879D006DC0D1 /* MemoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDAO.swift; sourceTree = "<group>"; };
 		CF1D0B13226ED0650064217F /* MyMemory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMemory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1D0B16226ED0650064217F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF1D0B1B226ED0650064217F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				CF1D0B2F226EE0F20064217F /* MemoReadVC.swift */,
 				CF1D0B31226EE1220064217F /* MemoCell.swift */,
 				CF1D0B33226EE1500064217F /* MemoData.swift */,
+				CF15D9252285879D006DC0D1 /* MemoDAO.swift */,
 				CFAE3FDE22781FE400B19ACD /* CSLogButton.swift */,
 				CFDD0CEA227955CA0031B761 /* SideBarVC.swift */,
 				CFDD0CEE22795BEC0031B761 /* ProfileVC.swift */,
@@ -261,6 +264,7 @@
 				CFDD0CEB227955CA0031B761 /* SideBarVC.swift in Sources */,
 				CF41A821227C41E200F5D64C /* TutorialContentsVC.swift in Sources */,
 				CFDD0CD9227952F50031B761 /* SWRevealViewController.m in Sources */,
+				CF15D9262285879D006DC0D1 /* MemoDAO.swift in Sources */,
 				CF1D0B2E226EE0E30064217F /* MemoFormVC.swift in Sources */,
 				CF1D0B17226ED0650064217F /* AppDelegate.swift in Sources */,
 				CF41A824227C431D00F5D64C /* TutorialMasterVC.swift in Sources */,
