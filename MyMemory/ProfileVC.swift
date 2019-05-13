@@ -68,6 +68,10 @@ class ProfileVC: UIViewController {
     @objc func close(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
+    
+    @IBAction func backProfileVC(_ segue: UIStoryboardSegue){
+        
+    }
 }
 
 // MARK: - TableView 메소드 관련
